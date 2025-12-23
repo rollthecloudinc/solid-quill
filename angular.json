@@ -129,9 +129,17 @@
               "projects/plugin/src/assets"
             ],
             "styles": [
+              "./node_modules/quill/dist/quill.core.css",
+              "./node_modules/quill/dist/quill.bubble.css",
+              "./node_modules/quill/dist/quill.snow.css",
+              "./node_modules/katex/dist/katex.min.css",
+              "./node_modules/quill-mention/dist/quill.mention.css",
               "projects/plugin/src/styles.css"
             ],
-            "scripts": [],
+            "scripts": [
+              "./node_modules/katex/dist/katex.min.js",
+              "./node_modules/quill/dist/quill.js"
+            ],
             "define": {
               "process": "{\"env\": {\"NODE_ENV\": \"development\"}}", 
               "process.env.NODE_ENV": "\"development\""
@@ -166,7 +174,7 @@
             "tsConfig": "projects/plugin/tsconfig.app.json",
             "rebuildDelay": 0,
             "dev": true,
-            "port": 3000
+            "port": 3001
           },
           "configurations": {
             "development": {
@@ -182,7 +190,7 @@
         "serve-original": {
           "builder": "@angular-devkit/build-angular:dev-server", 
           "options": {
-            "port": 3000,
+            "port": 3001,
             "buildTarget": "plugin:esbuild:development"
           },
           "configurations": {
@@ -202,7 +210,7 @@
             "tsConfig": "projects/plugin/tsconfig.app.json",
             "rebuildDelay": 0,
             "dev": true,
-            "port": 3000
+            "port": 3001
           },
           "configurations": {
             "development": {

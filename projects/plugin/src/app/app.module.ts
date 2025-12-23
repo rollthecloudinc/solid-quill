@@ -4,17 +4,19 @@ import { AppComponent } from './app.component';
 import { DownloadComponent } from './download.component';
 import { UploadComponent } from './upload.component';
 import { DownloadModule } from './download.module';
+import { QuillModule } from './quill.module';
 @NgModule({
   imports: [
     BrowserModule,
-    DownloadModule
+    DownloadModule,
+    QuillModule
   ],
   declarations: [
     AppComponent,
     UploadComponent,
   ],
   bootstrap: [
-      AppComponent
+    AppComponent
   ]
 })
 export class AppModule { 

@@ -5,6 +5,7 @@ module.exports = withNativeFederation({
   
   exposes: {
     './DownloadModule': './projects/plugin/src/app/download.module.ts',
+    './QuillModule': './projects/plugin/src/app/quill.module.ts',
     './Download': './projects/plugin/src/app/download.component.ts',
     './Upload': './projects/plugin/src/app/upload.component.ts'
   },
@@ -19,7 +20,16 @@ module.exports = withNativeFederation({
     }),
   },
 
-  skip: ['rxjs'],
+  skip: [
+    'rxjs',
+    'cssjson',
+    /*'ngx-quill',
+    'highlight.js',
+    'katex',
+    'quill-image-resizor',
+    'quill-mention',
+    'quill',*/
+  ],
 
   features: {
     // New feature for more performance and avoiding

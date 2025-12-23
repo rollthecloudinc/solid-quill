@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { ContentPluginManager } from '@rollthecloudinc/content';
+import { Component, ViewEncapsulation } from '@angular/core';
+import { FormElementBase } from '@rollthecloudinc/forms';
 
 @Component({
     selector: 'solid-quill-quill',
@@ -9,12 +9,5 @@ import { ContentPluginManager } from '@rollthecloudinc/content';
     standalone: false
 })
 
-export class QuillComponent implements OnInit {
-    constructor(
-        private cpm: ContentPluginManager
-    ) { 
-        console.log('quill component constructor');
-    }
-
-    ngOnInit() { }
+export class QuillComponent extends FormElementBase {
 }

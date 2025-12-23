@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { ContentHandler, ContentBinding, ContentPluginEditorOptions } from '@rollthecloudinc/content';
 import { AttributeValue } from '@rollthecloudinc/attributes';
+import { FormElementHandler } from '@rollthecloudinc/forms';
 import { Observable, of } from 'rxjs';
 
 @Injectable()
-export class QuillContentHandler implements ContentHandler {
+export class QuillContentHandler extends FormElementHandler {
 
-  constructor() { }
+  /*constructor() { }
 
   handleFile(file: File): Observable<Array<AttributeValue>> {
     return of();
@@ -50,6 +51,6 @@ export class QuillContentHandler implements ContentHandler {
 
   editorOptions(settings: Array<AttributeValue>): Observable<ContentPluginEditorOptions> {
     return of(new ContentPluginEditorOptions({ fullscreen: true }));
-  }
+  }*/
 
 }

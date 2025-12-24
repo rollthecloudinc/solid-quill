@@ -1,8 +1,10 @@
-import { ContentPlugin } from '@rollthecloudinc/content';
+import { ContentHandler, ContentPlugin } from '@rollthecloudinc/content';
 import { DownloadComponent } from './download.component';
 import { DownloadContentHandler } from './handlers/download-content.handler';
 import { QuillContentHandler } from './handlers/quill-content.handler';
 import { QuillComponent } from './quill/quill.component';
+import { QuillViewComponent } from './quill-view/quill-view.component';
+import { QuillViewContentHandler } from './handlers/quill-view-content.handler';
 
 export const pluginDownloadContentPluginFactory  = ({ handler }: { handler: DownloadContentHandler }) => {
   return new ContentPlugin<string>({
@@ -15,7 +17,7 @@ export const pluginDownloadContentPluginFactory  = ({ handler }: { handler: Down
   } as any);
 };
 
-export const pluginQuillContentPluginFactory  = ({ handler }: { handler: QuillContentHandler }) => {
+export const pluginQuillContentPluginFactory  = ({ handler }: { handler: ContentHandler }) => {
   return new ContentPlugin<string>({
     id: 'plugin_quill',
     title: 'Quill Editor',
@@ -25,3 +27,15 @@ export const pluginQuillContentPluginFactory  = ({ handler }: { handler: QuillCo
     handler
   } as any);
 };
+
+export const pluginQuillViewContentPluginFactory  = ({ handler }: { handler: QuillViewContentHandler }) => {
+  return new ContentPlugin<string>({
+    id: 'plugin_quill_view',
+    title: 'Quill View',
+    selectionComponent: undefined,
+    editorComponent: undefined,
+    renderComponent: QuillViewComponent,
+    handler
+  } as any);
+};
+

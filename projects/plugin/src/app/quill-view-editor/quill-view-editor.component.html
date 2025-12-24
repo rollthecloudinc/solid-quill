@@ -1,0 +1,13 @@
+<form [formGroup]="contentForm" (ngSubmit)="submit()">
+    <mat-dialog-content>
+        <div>
+            <mat-form-field>
+                <mat-label>Content Object Token</mat-label>
+                <input matInput formControlName="token">
+            </mat-form-field>
+        </div>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button type="submit" mat-raised-button color="primary" mat-dialog-close [disabled]="!contentForm.valid">Save</button>       
+    </mat-dialog-actions>
+</form>

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { ContentPluginManager } from '@rollthecloudinc/content';
+import { MaterialModule } from '@rollthecloudinc/material';
 import { pluginQuillContentPluginFactory, pluginQuillViewContentPluginFactory } from './app.factories';
 import { CommonModule } from '@angular/common';
 import { QuillContentHandler } from './handlers/quill-content.handler';
@@ -9,16 +10,19 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormElementHandler } from '@rollthecloudinc/forms';
 import { QuillViewComponent } from './quill-view/quill-view.component';
 import { QuillViewContentHandler } from './handlers/quill-view-content.handler';
+import { QuillViewEditorComponent } from './quill-view-editor/quill-view-editor.component';
 
 @NgModule({
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    MaterialModule,
     QModule.forRoot()
   ],
   declarations: [
     QuillComponent,
-    QuillViewComponent
+    QuillViewComponent,
+    QuillViewEditorComponent
   ],
   providers: [
     // QuillContentHandler
@@ -26,7 +30,8 @@ import { QuillViewContentHandler } from './handlers/quill-view-content.handler';
   ],
   exports: [
     QuillComponent,
-    QuillViewComponent
+    QuillViewComponent,
+    QuillViewEditorComponent
   ]
 })
 export class QuillModule { 

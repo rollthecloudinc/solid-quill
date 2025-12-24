@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { ContentHandler, ContentBinding, ContentPluginEditorOptions } from '@rollthecloudinc/content';
-import { AttributeValue } from '@rollthecloudinc/attributes';
+import { AttributeValue, AttributeSerializerService } from '@rollthecloudinc/attributes';
 import { Observable, of } from 'rxjs';
+import { QuillViewItem } from '../models/quill.models';
 
 @Injectable()
 export class QuillViewContentHandler implements ContentHandler {
 
-  constructor() { }
+  constructor(private attributeSerializer: AttributeSerializerService) { }
 
   handleFile(file: File): Observable<Array<AttributeValue>> {
     return of();
@@ -50,6 +51,14 @@ export class QuillViewContentHandler implements ContentHandler {
 
   editorOptions(settings: Array<AttributeValue>): Observable<ContentPluginEditorOptions> {
     return of(new ContentPluginEditorOptions({ fullscreen: true }));
+  }
+
+  toObject(settings: Array<AttributeValue>): Observable<QuillViewItem> {
+    return of(new QuillViewItem(this.attributeSerializer.deserializeAsObject(settings)));
+  }
+
+  buildSettings(instance: QuillViewItem ): Array<AttributeValue> {
+    return this.attributeSerializer.serialize(instance, 'root').attributes;
   }
 
 }

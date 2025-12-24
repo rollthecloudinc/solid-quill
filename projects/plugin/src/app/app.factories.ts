@@ -6,6 +6,7 @@ import { QuillComponent } from './quill/quill.component';
 import { QuillViewComponent } from './quill-view/quill-view.component';
 import { QuillViewContentHandler } from './handlers/quill-view-content.handler';
 import { QuillViewEditorComponent } from './quill-view-editor/quill-view-editor.component';
+import { QuillEditorComponent } from './quill-editor/quill-editor.component';
 
 export const pluginDownloadContentPluginFactory  = ({ handler }: { handler: DownloadContentHandler }) => {
   return new ContentPlugin<string>({
@@ -23,7 +24,7 @@ export const pluginQuillContentPluginFactory  = ({ handler }: { handler: Content
     id: 'plugin_quill',
     title: 'Quill Editor',
     selectionComponent: undefined,
-    editorComponent: undefined,
+    editorComponent: QuillEditorComponent,
     renderComponent: QuillComponent,
     handler
   } as any);

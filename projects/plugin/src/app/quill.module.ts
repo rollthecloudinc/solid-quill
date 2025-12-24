@@ -11,18 +11,22 @@ import { FormElementHandler } from '@rollthecloudinc/forms';
 import { QuillViewComponent } from './quill-view/quill-view.component';
 import { QuillViewContentHandler } from './handlers/quill-view-content.handler';
 import { QuillViewEditorComponent } from './quill-view-editor/quill-view-editor.component';
+import { QuillEditorComponent } from './quill-editor/quill-editor.component';
+import { OrdainModule } from '@rollthecloudinc/ordain';
 
 @NgModule({
   imports: [
     CommonModule,
     ReactiveFormsModule,
     MaterialModule,
+    OrdainModule,
     QModule.forRoot()
   ],
   declarations: [
     QuillComponent,
     QuillViewComponent,
-    QuillViewEditorComponent
+    QuillViewEditorComponent,
+    QuillEditorComponent
   ],
   providers: [
     // QuillContentHandler
@@ -31,7 +35,8 @@ import { QuillViewEditorComponent } from './quill-view-editor/quill-view-editor.
   exports: [
     QuillComponent,
     QuillViewComponent,
-    QuillViewEditorComponent
+    QuillViewEditorComponent,
+    QuillEditorComponent
   ]
 })
 export class QuillModule { 
